@@ -58,7 +58,7 @@
       </span> RUKA-v2              
     </div>
     <div class="is-size-3" id="first-page-sub-title-text">
-      Zero-shot transfer of tactile human demonstrations to robotic manipulation
+      Tendon Driven Open-Source Dexterous Hand with Wrist and Abduction for Robot Learning
     </div>
   </div>
   <!-- <div class="first-page-video-speed is-size-7" id="bg-video-speed" style="padding: 0 20px">
@@ -80,26 +80,27 @@
           <h1 class="title is-1 publication-title">
             </span>RUKA-v2
             <br>
-            <span class="is-size-2">Contact-Driven Learning from Humans</span>
+            <span class="is-size-2">Tendon Driven Open-Source Dexterous Hand with Wrist and Abduction for Robot Learning</span>
           </h1>
 
           <!-- Conference -->
           <h2 class="title is-4">
-            <a href="https://rss25-roboreps.github.io/#:~:text=Feel%20the%20Force%3A%20Contact%2DDriven%20Learning,Bhirangi%2C%20Pieter%20Abbeel%2C%20Lerrel%20Pinto" class="conference">
-              RSS Workshop 2025
+            <!-- <a href="https://rss25-roboreps.github.io/#:~:text=Feel%20the%20Force%3A%20Contact%2DDriven%20Learning,Bhirangi%2C%20Pieter%20Abbeel%2C%20Lerrel%20Pinto" class="conference"> -->
+              CoRL Workshop 2026
             </a>
           </h2>
 
          <!-- Authors -->
         <div class="is-size-5 publication-authors">
-          <span class="author-block" style="margin-right: 1rem;"><a href="https://ademiadeniji.github.io/" style="color: #2980b9 !important;">Ademi Adeniji<sup>*12</sup></a></span>
-          <span class="author-block" style="margin-right: 1rem;"><a href="https://www.linkedin.com/in/zhuoran-chen-90a18a251/" style="color: #2980b9 !important;">Zhuoran Chen<sup>*3</sup></a></span>
-          <span class="author-block" style="margin-right: 1rem;"><a href="https://vliu15.github.io/" style="color: #2980b9 !important;">Vincent Liu<sup>1</sup></a></span>
-          <span class="author-block" style="margin-right: 1rem;"><a href="https://venkyp.com/" style="color: #2980b9 !important;">Venkatesh Pattabiraman<sup>1</sup></a></span>
-          <span class="author-block" style="margin-right: 1rem;"><a href="https://siddhanthaldar.github.io/" style="color: #2980b9 !important;">Siddhant Haldar<sup>1</sup></a></span>
-          <span class="author-block" style="margin-right: 1rem;"><a href="https://raunaqbhirangi.github.io/" style="color: #2980b9 !important;">Raunaq Bhirangi<sup>1</sup></a></span>
-          <span class="author-block" style="margin-right: 1rem;"><a href="https://people.eecs.berkeley.edu/~pabbeel/" style="color: #2980b9 !important;">Pieter Abbeel<sup>2</sup></a></span>
+          <span class="author-block" style="margin-right: 1rem;"><a href="" style="color: #2980b9 !important;">Lucas Liu<sup>*2</sup></a></span>
+          <span class="author-block" style="margin-right: 1rem;"><a href="https://www.linkedin.com/in/sissi-h-013288321/" style="color: #2980b9 !important;">Ruoxi Hu<sup>*1</sup></a></span>
+          <span class="author-block" style="margin-right: 1rem;"><a href="https://aojedao.github.io/Portfolio/" style="color: #2980b9 !important;">Alejandro Ojeda Olarte<sup>1</sup></a></span>
+          <span class="author-block" style="margin-right: 1rem;"><a href="https://www.linkedin.com/in/zhuoran-chen-90a18a251/" style="color: #2980b9 !important;">Zhuoran Chen<sup>2</sup></a></span>
+          <span class="author-block" style="margin-right: 1rem;"><a href="https://kmang0.github.io/KMAWeb/" style="color: #2980b9 !important;">Kenny Ma<sup>1</sup></a></span>
+          <span class="author-block" style="margin-right: 1rem;"><a href="https://charlesji.com/" style="color: #2980b9 !important;">Charles Cheng Ji<sup>1</sup></a></span>
           <span class="author-block" style="margin-right: 1rem;"><a href="https://lerrelpinto.com/" style="color: #2980b9 !important;">Lerrel Pinto<sup>1</sup></a></span>
+          <span class="author-block" style="margin-right: 1rem;"><a href="https://raunaqbhirangi.github.io/" style="color: #2980b9 !important;">Raunaq Bhirangi <sup>1</sup></a></span>
+          <span class="author-block" style="margin-right: 1rem;"><a href="https://irmakguzey.github.io/" style="color: #2980b9 !important;">Irmak Guzey <sup>1</sup></a></span>
         </div>
         <div class="is-size-5 publication-authors">
           <span class="author-block" style="margin-right: 1rem;"><sup>1</sup>New York University</span>
@@ -241,7 +242,7 @@
 <!-- Method -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">Method</h2>
+    <h2 class="title is-3">Hardware</h2>
 
     <!-- Tactile Data Collection -->
     <div class="content">
@@ -311,6 +312,36 @@
 </section>
 <!--/ Method -->
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Controller</h2>
+    <div id="ftf-video-display-controller">
+        <div class="video-content" id="video-teleop-sim2real">
+          <div class="columns">
+            <div class="column">
+              <h4 class="title is-5 has-text-centered"> Human Video </h4>
+              <video  controls autoplay muted loop playsinline width="125%">
+                <source src="./static/videos/replay_human.mov" type="video/mp4">
+              </video>
+            </div>
+            <div class="column">
+              <h4 class="title is-5 has-text-centered">URDF Simulation</h4>
+              <video  controls autoplay muted loop playsinline width="125%">
+                <source src="./static/videos/replay_urdf.mov" type="video/mp4">
+              </video>
+            </div>
+            <div class="column">
+              <h4 class="title is-5 has-text-centered">Robot Transfer</h4>
+              <video  controls autoplay muted loop playsinline width="95%">
+                <source src="./static/videos/replay_robot_1.mov" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- Experiments -->
 <section class="section">
@@ -322,7 +353,8 @@
       <h3 class="title is-4">1. Teleoperated tasks </h3>
       <div class="tabs is-centered is-boxed" id="ftf-video-tabs">
         <ul>
-          <li class="is-active" data-target="video-writing"><a>Writing</a></li>
+          <li class="is-active" data-target="video-pen"><a>Picking Up Pen</a></li>
+          <li data-target="video-writing"><a>Writing</a></li>
           <li data-target="video-box"><a>Grasp Weight from Box</a></li>
           <li data-target="video-box-bread"><a>Grasp Bread from Box</a></li>
           <li data-target="video-music"><a>Open Music Box</a></li>
@@ -335,7 +367,17 @@
       </div>
 
       <div id="ftf-video-display">
-        <div class="video-content" id="video-writing">
+        <div class="video-content" id="video-pen">
+          <div class="columns">
+            <div class="column is-centered">
+              <h4 class="title is-5 has-text-centered">Picking Up Pen </h4>
+              <video  controls autoplay muted loop playsinline width="75%" style="display: block; margin: 0 auto;">
+                <source src="./static/videos/pen_teleop.mov" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+        <div class="video-content" id="video-writing" style="display: none;">
           <div class="columns">
             <div class="column">
               <h4 class="title is-5 has-text-centered">Writing (3x speed) </h4>
@@ -349,7 +391,7 @@
           <div class="columns">
             <div class="column">
               <h4 class="title is-5 has-text-centered">Grasping Weight from Box </h4>
-              <video  controls autoplay muted loop plays inline width="100%">
+              <video  controls autoplay muted loop playsinline width="100%">
                 <source src="./static/videos/box_weight.mov" type="video/mp4">
               </video>
             </div>
@@ -359,7 +401,7 @@
           <div class="columns">
             <div class="column">
               <h4 class="title is-5 has-text-centered">Grasping Bread from Box </h4>
-              <video  controls autoplay muted loop plays inline width="100%">
+              <video  controls autoplay muted loop playsinline width="100%">
                 <source src="./static/videos/box_bread.mov" type="video/mp4">
               </video>
             </div>
@@ -389,12 +431,12 @@
           <div class="columns">
             <div class="column">
               <h4 class="title is-5 has-text-centered">Opening Book</h4>
-              <video  controls autoplay muted loop playsinline width="100%">
+              <video  controls autoplay muted loop playsinline width="75%" style="display: block; margin: 0 auto;">
                 <source src="./static/videos/book_open.MOV" type="video/mp4">
               </video>
             </div>
           </div>
-      </div>
+        </div>
       <div class="video-content" id="video-card"  style="display: none;">
           <div class="columns">
             <div class="column">
@@ -429,7 +471,7 @@
     <!-- FTF Performance with Toggle Videos -->
     <div class="content">
       <h3 class="title is-4" style="margin-top: 3rem; margin-bottom: 1.5rem;"> 2. Policy Learning Rollouts</h3>
-      <div class="tabs is-centered is-boxed" id="ftf-video-tabs">
+      <div class="tabs is-centered is-boxed" id="ftf-video-tabs-policy">
         <ul>
           <li class="is-active" data-target="video-pen-policy"><a>Pen Pickup</a></li>
           <li data-target="video-music-policy"><a>Open Music Box</a></li>
@@ -437,7 +479,7 @@
         </ul>
       </div>
 
-      <div id="ftf-video-display">
+      <div id="ftf-video-display-policy">
         <div class="video-content" id="video-pen-policy">
           <div class="columns">
             <div class="column">
@@ -458,7 +500,7 @@
           <div class="columns">
             <div class="column">
               <h4 class="title is-5 has-text-centered">Opening Music Box Rollout (2x speed) </h4>
-              <video  controls autoplay muted loop playsinline width="100%">
+              <video  controls autoplay muted loop playsinline width="90%" style="display: block; margin: 0 auto;">
                 <source src="./static/videos/music_policy.MOV" type="video/mp4">
               </video>
             </div>
@@ -467,9 +509,9 @@
         <div class="video-content" id="video-bread-policy"  style="display: none;">
           <div class="columns">
             <div class="column">
-              <h4 class="title is-5 has-text-centered">Opening Oven </h4>
-              <video  controls autoplay muted loop playsinline width="100%">
-                <source src="./static/videos/egg_human.mp4" type="video/mp4">
+              <h4 class="title is-5 has-text-centered">Bread Pick and Place Rollout (3.5x speed) </h4>
+              <video  controls autoplay muted loop playsinline width="95%" style="display: block; margin: 0 auto;">
+                <source src="./static/videos/bread_policy.MOV" type="video/mp4">
               </video>
             </div>
           </div>
@@ -480,7 +522,7 @@
 
     <!-- Comparison to Baselines -->
     <div class="content">
-      <h3 class="title is-4" style="margin-top: 3rem; margin-bottom: 1.5rem;">3. Policy Learning</h3>
+      <h3 class="title is-4" style="margin-top: 3rem; margin-bottom: 1.5rem;">3. Strength Tests (and others)</h3>
 
       <p>TABLE I: Performance comparison of different gripper action spaces in Human Demo</p>
       <div class="columns is-centered">
@@ -647,7 +689,7 @@
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>@misc{adeniji2025feelforcecontactdrivenlearning,
-      title={Feel the Force: Contact-Driven Learning from Humans}, 
+      title={RUKA-v2: Tendon Driven Open-Source Dexterous Hand with Wrist and Abduction for Robot Learning}, 
       author={Ademi Adeniji and Zhuoran Chen and Vincent Liu and Venkatesh Pattabiraman and Raunaq Bhirangi and Siddhant Haldar and Pieter Abbeel and Lerrel Pinto},
       year={2025},
       eprint={2506.01944},
