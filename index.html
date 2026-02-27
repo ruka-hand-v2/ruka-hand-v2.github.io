@@ -315,6 +315,8 @@
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3">Controller</h2>
+        <h4 class="title is-5">RUKA-v2 uses Dex Retargeting and inverse kinematics to implement a controller that determines joint angles from fingertip positions. </h4>
+
     <div id="ftf-video-display-controller">
         <div class="video-content" id="video-teleop-sim2real">
           <div class="columns">
@@ -346,11 +348,10 @@
 <!-- Experiments -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">Experiments</h2>
+    <h2 class="title is-3">Teleoperation</h2>
+        <h4 class="title is-5">We use Open Teach to teleoperate RUKA-v2 with the Oculus VR headset. </h4>
 
     <!-- FTF Performance with Toggle Videos -->
-    <div class="content">
-      <h3 class="title is-4">1. Teleoperated tasks </h3>
       <div class="tabs is-centered is-boxed" id="ftf-video-tabs">
         <ul>
           <li class="is-active" data-target="video-pen"><a>Picking Up Pen</a></li>
@@ -465,12 +466,13 @@
             </div>
           </div>
       </div>
-    </div>
+    </section>
  
 
-    <!-- FTF Performance with Toggle Videos -->
-    <div class="content">
-      <h3 class="title is-4" style="margin-top: 3rem; margin-bottom: 1.5rem;"> 2. Policy Learning Rollouts</h3>
+  <section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Policy Learning</h2>
+            <h4 class="title is-5">We use BAKU to train visual behavior cloning policies with RUKA-v2 from teleoperated demos. </h4>
       <div class="tabs is-centered is-boxed" id="ftf-video-tabs-policy">
         <ul>
           <li class="is-active" data-target="video-pen-policy"><a>Pen Pickup</a></li>
@@ -510,7 +512,7 @@
           <div class="columns">
             <div class="column">
               <h4 class="title is-5 has-text-centered">Bread Pick and Place Rollout (3.5x speed) </h4>
-              <video  controls autoplay muted loop playsinline width="95%" style="display: block; margin: 0 auto;">
+              <video  controls autoplay muted loop playsinline width="90%" style="display: block; margin: 0 auto;">
                 <source src="./static/videos/bread_policy.MOV" type="video/mp4">
               </video>
             </div>
@@ -518,12 +520,12 @@
         </div>
       </div>
     </div>
+    </section>
 
 
-    <!-- Comparison to Baselines -->
-    <div class="content">
-      <h3 class="title is-4" style="margin-top: 3rem; margin-bottom: 1.5rem;">3. Strength Tests (and others)</h3>
-
+    <section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Strength Tests (and others)</h2>
       <p>TABLE I: Performance comparison of different gripper action spaces in Human Demo</p>
       <div class="columns is-centered">
         <div class="column is-four-fifths">
@@ -621,11 +623,13 @@
       </div>
       <!-- <p>All models are trained on 30 demos per task.</p> -->
     </div>
+    </section>
 
     <!-- Failure Case Analysis -->
     <!-- Failure Case Analysis -->
-    <div class="content">
-      <h3 class="title is-4" style="margin-top: 3rem; margin-bottom: 1.5rem;">3. Failure Case Analysis of Baseline Policies <span style="color: rgb(154, 153, 153); font-size: 0.6em; margin-left: 8px;">(all demos are x4 speed)</h3>
+    <section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Teleoperation</h2>
 
       <h4 class="title is-5">Overforce-Induced Object Damage (Binary Gripper)</h4>
       <p>Binary gripper policies often result in crushed objects during manipulation.</p>
@@ -685,7 +689,7 @@
 
 
 <!-- TODO: BibTex -->
-<section class="section" id="BibTeX">
+<!-- <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>@misc{adeniji2025feelforcecontactdrivenlearning,
@@ -699,7 +703,7 @@
 }
 </code></pre>
   </div>
-</section>
+</section> -->
 
 
 <footer class="footer">
@@ -709,7 +713,8 @@
         <div class="content">
           <p>
             This website is modified from <a
-              href="https://github.com/nerfies/nerfies.github.io">Nerfies Template</a>.
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies Template</a> and <a
+              href="https://feel-the-force-ftf.github.io/">Feel the Force website</a>.
             Some website materials are adapted from <a
               href="https://transic-robot.github.io/">T<span style="font-variant-caps:all-small-caps;">RANSIC</span></a>.
           </p>
