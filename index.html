@@ -178,15 +178,25 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Robots often struggle with fine-grained force control in contact-rich manipulation tasks. While learning from human demonstrations offers a scalable solution, visual observations alone lack the fidelity needed to capture tactile intent. 
-            To bridge this gap, we propose <strong>Feel the Force (FTF)</strong>: a framework that learns force-sensitive manipulation from human tactile demonstrations.
+            Achieving human-like dexterity in robots has been a long-standing goal in the robotics community.
+            Last year, we released <strong>RUKA</strong>, a fully open-sourced, tendon-driven humanoid hand with
+            11 degrees of freedom — 2 per finger and 3 at the thumb — buildable for under $1,300.
+            It introduced a novel data-driven approach to finger control that captures tendon dynamics within the control system.
           </p>
           <p>
-            FTF uses a low-cost tactile glove to measure contact forces and vision-based hand pose estimation to capture human demonstrations. These are used to train a closed-loop transformer policy that predicts robot end-effector trajectories and desired contact forces.
-            At deployment, a PD controller modulates gripper closure to match the predicted forces, enabling precise and adaptive manipulation.
+            While impressive, RUKA lacked two significant degrees of freedom essential for imitating human behavior:
+            wrist mobility and finger abduction/adduction.
+            In this paper, we introduce <strong>RUKA-v2</strong>: a fully open-sourced, tendon-driven humanoid hand
+            featuring a <strong>decoupled 2-DOF parallel wrist</strong> and <strong>abduction/adduction</strong> at the fingers.
+            The parallel wrist adds smooth, independent flexion/extension and radial/ulnar deviation,
+            enabling manipulation in confined environments such as cabinets.
+            Abduction enables motions such as grasping thin objects, in-hand rotation, and calligraphy.
           </p>
           <p>
-            FTF generalizes across diverse force-sensitive tasks, achieving a 77% success rate across five manipulation scenarios, and demonstrates robustness to test-time disturbances—highlighting the benefits of grounding robotic control in human tactile behavior.
+            We describe the design components of RUKA-v2, compare it to RUKA across user experiments,
+            and demonstrate its applications for robot learning: bimanual and single-arm teleoperation
+            on dexterous tasks and learning of autonomous policies.
+            All 3D printer files, assembly instructions, controller software, and robot videos are open-sourced.
           </p>
         </div>
         <!-- /Abstract -->
@@ -209,23 +219,28 @@
 </section>
 
 <!-- Overview. -->
-<section class="section">  
+<section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Overview</h2>
         <div class="is-vcentered">
-          <img src="./static/images/overview.png"
-                alt="FTF Overview">
+          <img src="./static/images/hardware_overview.jpeg" alt="RUKA-v2 Overview">
         </div>
-        <div class="content has-text-justified">
+        <div class="content has-text-justified mt-4">
           <p>
-            <strong>FEELTHEFORCE (FTF) is a novel learning framework that enables robots to perform precise force-sensitive manipulation by learning from natural human interactions.</strong>
-            Unlike previous methods that rely on teleoperation or visual-only demonstrations, FTF uses a tactile glove to capture human contact forces and trains a closed-loop policy that predicts both hand trajectories and desired contact forces.
+            <strong>RUKA-v2 is a fully open-sourced, tendon-driven humanoid hand with 18 degrees of freedom</strong>,
+            extending RUKA with a decoupled 2-DOF parallel wrist and finger abduction/adduction.
+            All structural components are 3D printed; bearings, fasteners, and springs are off-the-shelf.
+            Actuators are mounted proximally in the forearm to reduce distal inertia, with tendons routed
+            through the wrist to each finger via guides that prevent sharp bends across all wrist poses.
           </p>
           <p>
-            At deployment, this policy is retargeted to a real robot (Franka Panda) using a shared representation of hand and robot keypoints, and executed with a PD controller that modulates the gripper to match predicted forces in real time.
-            This enables <strong>zero-shot transfer from human to robot</strong>, allowing the robot to handle tasks like gently placing an egg or twisting a bottle cap with fine force control — <em>without any robot data during training</em>.
+            The wrist enables manipulation in confined spaces such as cabinets, while abduction/adduction
+            supports grasping thin objects, in-hand reorientation, and fine dexterous tasks like calligraphy.
+            RUKA-v2 is designed to be accessible (under <strong>$3,000</strong>, no specialized tooling beyond a 3D printer),
+            reliable (thermally stable for extended runs, easily repairable in-house), and directly suitable
+            for robot learning via teleoperation and policy training.
           </p>
         </div>
       </div>
@@ -233,78 +248,198 @@
   </div>
 </section>
 <!--/ Overview. -->
-<!-- Method -->
+<!-- Hardware Design -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">Hardware</h2>
-
-    <!-- Tactile Data Collection -->
-    <div class="content">
-      <h3 class="title is-4">1. Tactile Data Collection</h3>
-      <img src="./static/images/glove_setup.png" alt="Tactile Data Collection">
-      <p>
-        We design a custom, low-cost tactile glove inspired by AnySkin to capture 3D contact forces during natural human manipulation.
-        The glove streams high-frequency force data, synchronized with stereo camera views capturing hand and object interactions.
-        A tactile sensor is mounted on the robot's gripper to replicate the force sensing.
-      </p>
-      <details>
-        <summary>More details</summary>
-        <p>
-          The tactile glove places magnetometer-based sensors on the underside of the thumb to minimize occlusion.
-          The sensor data is sampled at 200Hz and downsampled to align with 30Hz visual frames. The resulting force readings are used to supervise a policy trained entirely on human demonstrations, without requiring robot data.
-        </p>
-      </details>
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Hardware Design</h2>
+        <div class="content">
+          <p>
+            Building on RUKA, <strong>RUKA-v2</strong> introduces two hardware capabilities critical for human-like manipulation:
+            a <strong>decoupled 2-DOF parallel wrist</strong> and <strong>controlled finger abduction/adduction</strong>.
+            All major structural components are 3D printed; bearings, fasteners, and springs are off-the-shelf parts.
+            The total material cost is under <strong>$3,000</strong>, with actuators placed proximally in the forearm
+            to reduce distal inertia and simplify maintenance.
+          </p>
+        </div>
+      </div>
     </div>
 
-    <!-- Human-to-Robot Embodiment Transfer -->
-    <div class="content">
-      <h3 class="title is-4">2. Human-to-Robot Embodiment Transfer</h3>
-      <img src="./static/images/human2robot.png" alt="Embodiment Transfer">
-      <p>
-        We unify human and robot action spaces using a keypoint-based retargeting scheme. Human hand poses are extracted via triangulated keypoints from dual camera views and mapped onto the robot's end-effector pose.
-      </p>
-      <details>
-        <summary>More details</summary>
-        <p>
-          We compute robot position as the midpoint of thumb and index fingertip keypoints, and infer orientation via rigid-body transform between initial and current hand frames.
-          The resulting pose is projected to a set of robot keypoints for policy learning, making the method embodiment-agnostic and transferable.
+    <!-- Hardware Overview Figure -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <img src="./static/images/hardware_overview.jpeg" alt="RUKA-v2 Hardware Overview">
+        <p class="has-text-centered mt-2">
+          <strong>RUKA-v2 hardware overview.</strong> (A) 18 degrees of freedom labeled across all joints.
+          (B) The independent knuckle module enables abduction/adduction; the wrist module allows near-human wrist movements.
         </p>
-      </details>
+      </div>
     </div>
 
-    <!-- Policy Learning -->
-    <div class="content">
-      <h3 class="title is-4">3. Policy Learning</h3>
-      <img src="./static/images/transformer_policy.png" alt="Transformer Policy Architecture">
-      <p>
-        A Transformer-based architecture learns from historical trajectories of robot and object keypoints, along with force and gripper state inputs, to predict future motion and desired contact forces.
-      </p>
-      <details>
-        <summary>More details</summary>
-        <p>
-          Each input point track is encoded through an MLP and fed into the Transformer as a token.
-          The model is trained via mean squared error on predicted point tracks and force values, leveraging temporal smoothness via action chunking and exponential averaging.
-        </p>
-      </details>
+    <!-- Wrist Kinematics -->
+    <div class="content mt-6">
+      <h3 class="title is-4">Wrist Kinematics</h3>
+      <div class="columns is-vcentered">
+        <div class="column is-half">
+          <img src="./static/images/wrist.jpeg" alt="2-DOF Wrist Kinematics">
+        </div>
+        <div class="column is-half">
+          <p>
+            RUKA-v2 features a <strong>decoupled parallel wrist</strong> providing flexion/extension and radial/ulnar deviation,
+            independently actuated while maintaining predictable tendon geometry.
+            Intersecting rotation axes meet at a single pivot point defined by a passive spherical ball joint,
+            minimizing translational palm motion during rotation and reducing cross-axis coupling.
+          </p>
+          <p>
+            Finger tendons pass through a through-hole near the wrist rotation center, then are redirected
+            by a bearing-supported routing plate — limiting wrist-induced variation in tendon length and
+            improving controllability across all wrist poses.
+          </p>
+        </div>
+      </div>
     </div>
 
-    <!-- PD Force Controller -->
-    <div class="content">
-      <h3 class="title is-4">4. PD Force Controller</h3>
-      <!-- <img src="./static/images/pd_controller.gif" alt="PD Controller Logic"> -->
-      <p>
-        At deployment, a PD controller modulates the robot’s gripper to track the predicted contact force in real-time, ensuring robust and precise execution even under morphology or sensing discrepancies.
-      </p>
-      <details>
-        <summary>More details</summary>
-        <p>
-          The controller adjusts the gripper closure iteratively until the measured force matches the policy's predicted value. This forms a stable outer-loop around the robot hardware, correcting for noise and delay in actuation.
-        </p>
-      </details>
+    <!-- Finger Abduction/Adduction -->
+    <div class="content mt-5">
+      <h3 class="title is-4">Finger Abduction / Adduction</h3>
+      <div class="columns is-vcentered">
+        <div class="column is-half">
+          <p>
+            RUKA-v2 adds <strong>controlled abduction/adduction</strong> at the MCP joints via independent knuckle modules,
+            enabling lateral finger spacing for pinching thin objects, conforming to irregular geometry,
+            and stabilizing objects during in-hand reorientation.
+          </p>
+          <p>
+            Each joint is driven by a dedicated forearm tendon, with a spring return to neutral.
+            The middle finger remains fixed as a stable geometric reference. This configuration adds passive
+            compliance during contact and enforces a well-defined default posture.
+          </p>
+        </div>
+        <div class="column is-half">
+          <img src="./static/images/knuckle.jpeg" alt="Finger Abduction/Adduction Module">
+        </div>
+      </div>
     </div>
+
+    <!-- DIP/PIP Coupling -->
+    <div class="content mt-5">
+      <h3 class="title is-4">Optional DIP / PIP Coupling</h3>
+      <div class="columns is-vcentered">
+        <div class="column is-half">
+          <img src="./static/images/finger.jpeg" alt="DIP-PIP Coupling Mechanism">
+        </div>
+        <div class="column is-half">
+          <p>
+            RUKA-v2 offers an optional <strong>rigid DIP/PIP coupling mechanism</strong> that enforces synchronized
+            motion between the distal and proximal interphalangeal joints via fixed-length coupling strings
+            routed through internal channels.
+          </p>
+          <p>
+            This improves repeatability and simplifies control compared to RUKA’s passive coupling,
+            at the cost of per-joint compliance. The coupling is provided as an add-on with full assembly instructions.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Range of Motion Table -->
+    <div class="content mt-5">
+      <h3 class="title is-4">Range of Motion</h3>
+      <p>RUKA-v2 closely matches human range-of-motion requirements across all joints.</p>
+      <div class="table-container">
+        <table class="table is-fullwidth is-bordered is-striped">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Joint</th>
+              <th class="has-text-centered">Human</th>
+              <th class="has-text-centered">RUKA-v2</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="3"><strong>Fingers</strong></td>
+              <td>Distal Interphalangeal (DIP)</td>
+              <td class="has-text-centered">85°</td>
+              <td class="has-text-centered">120°</td>
+            </tr>
+            <tr>
+              <td>Proximal Interphalangeal (PIP)</td>
+              <td class="has-text-centered">105°</td>
+              <td class="has-text-centered">120°</td>
+            </tr>
+            <tr>
+              <td>Metacarpophalangeal (MCP)</td>
+              <td class="has-text-centered">85°</td>
+              <td class="has-text-centered">140°</td>
+            </tr>
+            <tr>
+              <td rowspan="3"><strong>Thumb</strong></td>
+              <td>Interphalangeal (IP)</td>
+              <td class="has-text-centered">80°</td>
+              <td class="has-text-centered">120°</td>
+            </tr>
+            <tr>
+              <td>Metacarpophalangeal (MCP)</td>
+              <td class="has-text-centered">56°</td>
+              <td class="has-text-centered">90°</td>
+            </tr>
+            <tr>
+              <td>Carpometacarpal (CMC)</td>
+              <td class="has-text-centered">—</td>
+              <td class="has-text-centered">190°</td>
+            </tr>
+            <tr>
+              <td rowspan="4"><strong>Abduction / Adduction</strong></td>
+              <td>Index</td>
+              <td class="has-text-centered">20–25°</td>
+              <td class="has-text-centered">20°</td>
+            </tr>
+            <tr>
+              <td>Middle</td>
+              <td class="has-text-centered">10–12°</td>
+              <td class="has-text-centered">Fixed</td>
+            </tr>
+            <tr>
+              <td>Ring</td>
+              <td class="has-text-centered">20–25°</td>
+              <td class="has-text-centered">23°</td>
+            </tr>
+            <tr>
+              <td>Pinky</td>
+              <td class="has-text-centered">30–35°</td>
+              <td class="has-text-centered">45°</td>
+            </tr>
+            <tr>
+              <td rowspan="4"><strong>Wrist</strong></td>
+              <td>Flexion</td>
+              <td class="has-text-centered">80–90°</td>
+              <td class="has-text-centered">45°</td>
+            </tr>
+            <tr>
+              <td>Extension</td>
+              <td class="has-text-centered">70°</td>
+              <td class="has-text-centered">30°</td>
+            </tr>
+            <tr>
+              <td>Radial deviation</td>
+              <td class="has-text-centered">20°</td>
+              <td class="has-text-centered">35°</td>
+            </tr>
+            <tr>
+              <td>Ulnar deviation</td>
+              <td class="has-text-centered">30°</td>
+              <td class="has-text-centered">35°</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
   </div>
 </section>
-<!--/ Method -->
+<!--/ Hardware Design -->
 
 <section class="section">
   <div class="container is-max-desktop">
