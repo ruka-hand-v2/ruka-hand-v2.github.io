@@ -477,7 +477,7 @@
 <!-- Experiments -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">Teleoperation</h2>
+    <h2 class="title is-3">Single Arm Teleoperation</h2>
         <h4 class="title is-5">We use Open Teach to teleoperate RUKA-v2 with the Oculus VR headset. </h4>
 
     <!-- FTF Performance with Toggle Videos -->
@@ -596,7 +596,55 @@
           </div>
       </div>
     </section>
- 
+
+
+  <section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Bimanual Teleoperation</h2>
+        <h4 class="title is-5">We use Open Teach to teleoperate RUKA-v2 with the Oculus VR headset. </h4>
+
+    <!-- FTF Performance with Toggle Videos -->
+      <div class="tabs is-centered is-boxed" id="ftf-video-tabs-bimanual">
+        <ul>
+          <li class="is-active" data-target="video-bim-oven"><a>Grab Bread from Oven</a></li>
+          <li data-target="video-bim-declutter"><a>Decluttering</a></li>
+          <li data-target="video-bim-wiping"><a>Wiping Table</a></li>
+        </ul>
+      </div>
+
+      <div id="ftf-video-display-bimanual">
+        <div class="video-content" id="video-bim-oven">
+          <div class="columns">
+            <div class="column is-centered">
+              <h4 class="title is-5 has-text-centered">Grab Bread from Oven </h4>
+              <video  controls autoplay muted loop playsinline width="70%" style="display: block; margin: 0 auto;">
+                <source src="./static/videos/bim_oven_bread.mov" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+        <div class="video-content" id="video-bim-declutter" style="display: none;">
+          <div class="columns">
+            <div class="column">
+              <h4 class="title is-5 has-text-centered"> Decluttering and Place in Basket(4x speed) </h4>
+              <video  controls autoplay muted loop playsinline width="70%" style="display: block; margin: 0 auto;">
+                <source src="./static/videos/bim_decluttering.mov" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+        <div class="video-content" id="video-bim-wiping"  style="display: none;">
+          <div class="columns">
+            <div class="column">
+              <h4 class="title is-5 has-text-centered">Wiping Table </h4>
+              <video  controls autoplay muted loop playsinline width="75%" style="display: block; margin: 0 auto;">
+                <source src="./static/videos/bim_wiping.mov" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+        </div>
+    </section>
 
   <section class="section">
   <div class="container is-max-desktop">

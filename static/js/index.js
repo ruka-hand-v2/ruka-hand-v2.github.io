@@ -48,6 +48,24 @@ document.addEventListener('DOMContentLoaded', function () {
 	  });
 	});
   });
+
+  document.addEventListener('DOMContentLoaded', function () {
+	const tabs = document.querySelectorAll('#ftf-video-tabs-bimanual li');
+	const contents = document.querySelectorAll('#ftf-video-display-bimanual .video-content');
+  
+	tabs.forEach(tab => {
+	  tab.addEventListener('click', () => {
+		const targetId = tab.getAttribute('data-target');
+  
+		tabs.forEach(t => t.classList.remove('is-active'));
+  
+		contents.forEach(content => content.style.display = 'none');
+  
+		tab.classList.add('is-active');
+		document.getElementById(targetId).style.display = '';
+	  });
+	});
+  });
   
   document.addEventListener('DOMContentLoaded', function () {
 	const tabs = document.querySelectorAll('#ftf-video-tabs-policy li');
