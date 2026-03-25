@@ -711,103 +711,65 @@
 
     <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">Strength Tests (and others)</h2>
-      <p>TABLE I: Performance comparison of different gripper action spaces in Human Demo</p>
+    <h2 class="title is-3">Payload Tests</h2>
+      <p>Maximum payload holding performance across different joint configurations.</p>
       <div class="columns is-centered">
         <div class="column is-four-fifths">
           <div class="table-container">
-            <table class="table is-fullwidth">
+            <table class="table is-fullwidth is-bordered is-striped">
+              <thead>
+                <tr>
+                  <th>Condition</th>
+                  <th class="has-text-centered">Max Load (g)</th>
+                  <th class="has-text-centered">Hold Time (s)</th>
+                </tr>
+              </thead>
               <tbody>
                 <tr>
-                  <th class="border-right"></th>
-                  <th class="has-text-centered">FTF</th>
-                  <th class="has-text-centered">Binary Gripper</th>
-                  <th class="has-text-centered border-right">Continuous Gripper</th>
+                  <td>Non-thumb fingers DIP-PIP</td>
+                  <td class="has-text-centered">1200</td>
+                  <td class="has-text-centered">15</td>
                 </tr>
                 <tr>
-                  <th class="border-right">Place bread on plate</th>
-                  <td class="has-text-centered"><b>13/15</b></td>
-                  <td class="has-text-centered">0/15</td>
-                  <td class="has-text-centered border-right">0/15</td>
+                  <td>Non-thumb fingers MCP</td>
+                  <td class="has-text-centered">780</td>
+                  <td class="has-text-centered">15</td>
                 </tr>
                 <tr>
-                  <th class="border-right">Unstack cup</th>
-                  <td class="has-text-centered"><b>9/15</b></td>
-                  <td class="has-text-centered">0/15</td>
-                  <td class="has-text-centered border-right">0/15 (2 picked 3 cups)</td>
+                  <td>Non-thumb fingers adduction</td>
+                  <td class="has-text-centered">150</td>
+                  <td class="has-text-centered">15</td>
                 </tr>
                 <tr>
-                  <th class="border-right">Place egg in pot</th>
-                  <td class="has-text-centered"><b>13/15</b></td>
-                  <td class="has-text-centered">0/15</td>
-                  <td class="has-text-centered border-right">0/15</td>
+                  <td>Thumb</td>
+                  <td class="has-text-centered">835</td>
+                  <td class="has-text-centered">20</td>
                 </tr>
                 <tr>
-                  <th class="border-right">Place chips</th>
-                  <td class="has-text-centered"><b>10/15</b></td>
-                  <td class="has-text-centered">0/15</td>
-                  <td class="has-text-centered border-right">0/15</td>
+                  <td>Wrist (forearm supination)</td>
+                  <td class="has-text-centered">1215</td>
+                  <td class="has-text-centered">20</td>
                 </tr>
                 <tr>
-                  <th class="border-right">Twist bottle cap</th>
-                  <td class="has-text-centered"><b>13/15</b></td>
-                  <td class="has-text-centered">11/15 (1/15 break gripper pads)</td>
-                  <td class="has-text-centered border-right">0/15</td>
+                  <td>Wrist (forearm pronation)</td>
+                  <td class="has-text-centered">1215</td>
+                  <td class="has-text-centered">20</td>
+                </tr>
+                <tr>
+                  <td>Wrist (radial-side-up)</td>
+                  <td class="has-text-centered">835</td>
+                  <td class="has-text-centered">20</td>
+                </tr>
+                <tr>
+                  <td>Wrist (ulnar-side-up)</td>
+                  <td class="has-text-centered">835</td>
+                  <td class="has-text-centered">20</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
       </div>
-
-      <p>TABLE II: Performance comparison of different gripper action spaces in Robot Teleop Demo</p>
-      <div class="columns is-centered">
-        <div class="column is-four-fifths">
-          <div class="table-container">
-            <table class="table is-fullwidth">
-              <tbody>
-                <tr>
-                  <th class="border-right"></th>
-                  <th class="has-text-centered">FTF</th>
-                  <th class="has-text-centered">Binary Gripper</th>
-                  <th class="has-text-centered border-right">Continuous Gripper</th>
-                </tr>
-                <tr>
-                  <th class="border-right">Place bread on plate</th>
-                  <td class="has-text-centered"><b>5/15</b></td>
-                  <td class="has-text-centered">0/15</td>
-                  <td class="has-text-centered border-right">3/15</td>
-                </tr>
-                <tr>
-                  <th class="border-right">Unstack cup</th>
-                  <td class="has-text-centered"><b>4/15</b></td>
-                  <td class="has-text-centered">0/15 (6 picked 3 cups)</td>
-                  <td class="has-text-centered border-right">0/15 (2 picked 2 cups)</td>
-                </tr>
-                <tr>
-                  <th class="border-right">Place egg in pot</th>
-                  <td class="has-text-centered">0/15</td>
-                  <td class="has-text-centered">0/15</td>
-                  <td class="has-text-centered border-right">0/15</td>
-                </tr>
-                <tr>
-                  <th class="border-right">Place chips</th>
-                  <td class="has-text-centered"><b>3/15</b></td>
-                  <td class="has-text-centered">0/15</td>
-                  <td class="has-text-centered border-right">0/15</td>
-                </tr>
-                <tr>
-                  <th class="border-right">Twist bottle cap</th>
-                  <td class="has-text-centered">9/15</td>
-                  <td class="has-text-centered"><b>12/15</b></td>
-                  <td class="has-text-centered border-right">8/15</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      <!-- <p>All models are trained on 30 demos per task.</p> -->
     </div>
     </section>
 
