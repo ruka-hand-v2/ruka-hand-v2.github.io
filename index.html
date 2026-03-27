@@ -245,7 +245,7 @@
           <p>
             The wrist enables manipulation in confined spaces such as cabinets, while abduction/adduction
             supports grasping thin objects, in-hand reorientation, and fine dexterous tasks like calligraphy.
-            RUKA-v2 is designed to be accessible (under <strong>$3,000</strong>, no specialized tooling beyond a 3D printer),
+            RUKA-v2 is designed to be accessible (under <strong>$2,000</strong>, no specialized tooling beyond a 3D printer),
             reliable (thermally stable for extended runs, easily repairable in-house), and directly suitable
             for robot learning via teleoperation and policy training.
           </p>
@@ -266,7 +266,7 @@
             Building on RUKA, <strong>RUKA-v2</strong> introduces two hardware capabilities critical for human-like manipulation:
             a <strong>decoupled 2-DOF parallel wrist</strong> and <strong>controlled finger abduction/adduction</strong>.
             All major structural components are 3D printed; bearings, fasteners, and springs are off-the-shelf parts.
-            The total material cost is under <strong>$3,000</strong>, with actuators placed proximally in the forearm
+            The total material cost is under <strong>$2,000</strong>, with actuators placed proximally in the forearm
             to reduce distal inertia and simplify maintenance.
           </p>
         </div>
@@ -278,75 +278,17 @@
       <div class="column is-full-width">
         <img src="./static/images/hardware_overview.jpeg" alt="RUKA-v2 Hardware Overview">
         <p class="has-text-centered mt-2">
-          <strong>RUKA-v2 hardware overview.</strong> (A) 18 degrees of freedom labeled across all joints.
-          (B) The independent knuckle module enables abduction/adduction; the wrist module allows near-human wrist movements.
+          <strong>(A)</strong> RUKA-v2 features 18 degrees of freedom across the fingers and thumb,
+          with joints at the DIP, PIP, MCP, and Adduction axes on each finger, and IP, MCP,
+          and CMC joints on the thumb. An additional 2-DOF wrist provides flexion/extension
+          and radial/ulnar deviation.
+          <strong>(B)</strong> The independent knuckle module enables abduction/adduction at the MCP
+          joints, allowing the fingers to splay and converge laterally. The middle finger
+          remains fixed as a structural reference.
+          <strong>(C)</strong> The 2-DOF wrist module supports near-human range of motion: flexion/extension
+          (top) and radial/ulnar deviation (bottom), actuated independently via decoupled
+          parallel linkages.
         </p>
-      </div>
-    </div>
-
-    <!-- Wrist Kinematics -->
-    <div class="content mt-6">
-      <h3 class="title is-4">Wrist Kinematics</h3>
-      <div class="columns is-vcentered">
-        <div class="column is-half">
-          <img src="./static/images/wrist.jpeg" alt="2-DOF Wrist Kinematics">
-        </div>
-        <div class="column is-half">
-          <p>
-            RUKA-v2 features a <strong>decoupled parallel wrist</strong> providing flexion/extension and radial/ulnar deviation,
-            independently actuated while maintaining predictable tendon geometry.
-            Intersecting rotation axes meet at a single pivot point defined by a passive spherical ball joint,
-            minimizing translational palm motion during rotation and reducing cross-axis coupling.
-          </p>
-          <p>
-            Finger tendons pass through a through-hole near the wrist rotation center, then are redirected
-            by a bearing-supported routing plate — limiting wrist-induced variation in tendon length and
-            improving controllability across all wrist poses.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Finger Abduction/Adduction -->
-    <div class="content mt-5">
-      <h3 class="title is-4">Finger Abduction / Adduction</h3>
-      <div class="columns is-vcentered">
-        <div class="column is-half">
-          <p>
-            RUKA-v2 adds <strong>controlled abduction/adduction</strong> at the MCP joints via independent knuckle modules,
-            enabling lateral finger spacing for pinching thin objects, conforming to irregular geometry,
-            and stabilizing objects during in-hand reorientation.
-          </p>
-          <p>
-            Each joint is driven by a dedicated forearm tendon, with a spring return to neutral.
-            The middle finger remains fixed as a stable geometric reference. This configuration adds passive
-            compliance during contact and enforces a well-defined default posture.
-          </p>
-        </div>
-        <div class="column is-half">
-          <img src="./static/images/knuckle.jpeg" alt="Finger Abduction/Adduction Module">
-        </div>
-      </div>
-    </div>
-
-    <!-- DIP/PIP Coupling -->
-    <div class="content mt-5">
-      <h3 class="title is-4">Optional DIP / PIP Coupling</h3>
-      <div class="columns is-vcentered">
-        <div class="column is-half">
-          <img src="./static/images/finger.jpeg" alt="DIP-PIP Coupling Mechanism">
-        </div>
-        <div class="column is-half">
-          <p>
-            RUKA-v2 offers an optional <strong>rigid DIP/PIP coupling mechanism</strong> that enforces synchronized
-            motion between the distal and proximal interphalangeal joints via fixed-length coupling strings
-            routed through internal channels.
-          </p>
-          <p>
-            This improves repeatability and simplifies control compared to RUKA’s passive coupling,
-            at the cost of per-joint compliance. The coupling is provided as an add-on with full assembly instructions.
-          </p>
-        </div>
       </div>
     </div>
 
