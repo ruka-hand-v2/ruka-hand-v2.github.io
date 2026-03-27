@@ -186,16 +186,16 @@
       <div class="column is-four-fifths">
        <!-- Abstract -->
         <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
+        <div class="content has-text-justified">          
           <p>
-            Achieving human-like dexterity in robots has been a long-standing goal in the robotics community.
-            Last year, we released <strong>RUKA</strong>, a fully open-sourced, tendon-driven humanoid hand with
-            11 degrees of freedom — 2 per finger and 3 at the thumb — buildable for under $1,300.
-            It introduced a novel data-driven approach to finger control that captures tendon dynamics within the control system.
+            Lack of accessible and dexterous robot hardware has been one of the most significant bottlenecks to achieving
+            human-level dexterity in robots. Last year, we released <strong>RUKA</strong>, a fully open-sourced, tendon-driven humanoid hand with
+            11 degrees of freedom — 2 per finger and 3 at the thumb — buildable for under $1,300. It was one of the first fully open-sourced
+          humanoid hands, and introduced a novel data-driven approach to finger control that captures tendon dynamics
+          within the control system. Despite these contributions, Ruka lacked two degrees of freedom essential
+          for closely imitating human behavior: wrist mobility and finger adduction/abduction. 
           </p>
           <p>
-            While impressive, RUKA lacked two significant degrees of freedom essential for imitating human behavior:
-            wrist mobility and finger abduction/adduction.
             In this paper, we introduce <strong>RUKA-v2</strong>: a fully open-sourced, tendon-driven humanoid hand
             featuring a <strong>decoupled 2-DOF parallel wrist</strong> and <strong>abduction/adduction</strong> at the fingers.
             The parallel wrist adds smooth, independent flexion/extension and radial/ulnar deviation,
@@ -350,108 +350,13 @@
       </div>
     </div>
 
-    <!-- Range of Motion Table -->
-    <div class="content mt-5">
-      <h3 class="title is-4">Range of Motion</h3>
-      <p>RUKA-v2 closely matches human range-of-motion requirements across all joints.</p>
-      <div class="table-container">
-        <table class="table is-fullwidth is-bordered is-striped">
-          <thead>
-            <tr>
-              <th>Type</th>
-              <th>Joint</th>
-              <th class="has-text-centered">Human</th>
-              <th class="has-text-centered">RUKA-v2</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td rowspan="3"><strong>Fingers</strong></td>
-              <td>Distal Interphalangeal (DIP)</td>
-              <td class="has-text-centered">85°</td>
-              <td class="has-text-centered">120°</td>
-            </tr>
-            <tr>
-              <td>Proximal Interphalangeal (PIP)</td>
-              <td class="has-text-centered">105°</td>
-              <td class="has-text-centered">120°</td>
-            </tr>
-            <tr>
-              <td>Metacarpophalangeal (MCP)</td>
-              <td class="has-text-centered">85°</td>
-              <td class="has-text-centered">140°</td>
-            </tr>
-            <tr>
-              <td rowspan="3"><strong>Thumb</strong></td>
-              <td>Interphalangeal (IP)</td>
-              <td class="has-text-centered">80°</td>
-              <td class="has-text-centered">120°</td>
-            </tr>
-            <tr>
-              <td>Metacarpophalangeal (MCP)</td>
-              <td class="has-text-centered">56°</td>
-              <td class="has-text-centered">90°</td>
-            </tr>
-            <tr>
-              <td>Carpometacarpal (CMC)</td>
-              <td class="has-text-centered">—</td>
-              <td class="has-text-centered">190°</td>
-            </tr>
-            <tr>
-              <td rowspan="4"><strong>Abduction / Adduction</strong></td>
-              <td>Index</td>
-              <td class="has-text-centered">20–25°</td>
-              <td class="has-text-centered">20°</td>
-            </tr>
-            <tr>
-              <td>Middle</td>
-              <td class="has-text-centered">10–12°</td>
-              <td class="has-text-centered">Fixed</td>
-            </tr>
-            <tr>
-              <td>Ring</td>
-              <td class="has-text-centered">20–25°</td>
-              <td class="has-text-centered">23°</td>
-            </tr>
-            <tr>
-              <td>Pinky</td>
-              <td class="has-text-centered">30–35°</td>
-              <td class="has-text-centered">45°</td>
-            </tr>
-            <tr>
-              <td rowspan="4"><strong>Wrist</strong></td>
-              <td>Flexion</td>
-              <td class="has-text-centered">80–90°</td>
-              <td class="has-text-centered">45°</td>
-            </tr>
-            <tr>
-              <td>Extension</td>
-              <td class="has-text-centered">70°</td>
-              <td class="has-text-centered">30°</td>
-            </tr>
-            <tr>
-              <td>Radial deviation</td>
-              <td class="has-text-centered">20°</td>
-              <td class="has-text-centered">35°</td>
-            </tr>
-            <tr>
-              <td>Ulnar deviation</td>
-              <td class="has-text-centered">30°</td>
-              <td class="has-text-centered">35°</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-  </div>
 </section>
 <!--/ Hardware Design -->
 
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3">Controller</h2>
-        <h4 class="title is-5">RUKA-v2 uses Anyteleop's vector based retargeting and a linear interpolation controller to determine motor commands from hand keypoints. </h4>
+        <h4 class="title is-5">RUKA-v2's controller uses Anyteleop's vector based retargeting and linear interpolation. </h4>
 
     <div id="ftf-video-display-controller">
         <div class="video-content" id="video-teleop-sim2real">
