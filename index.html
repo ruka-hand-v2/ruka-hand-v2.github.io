@@ -278,8 +278,54 @@
       </div>
     </div>
 
-</section>
 <!--/ Hardware Design -->
+
+ <!-- Wrist Kinematics -->
+    <div class="content mt-6">
+      <h3 class="title is-4">Wrist Kinematics</h3>
+      <div class="columns is-vcentered">
+        <div class="column is-half">
+          <img src="./static/images/wrist.jpeg" alt="2-DOF Wrist Kinematics">
+        </div>
+        <div class="column is-half">
+          <p>
+            RUKA-v2 features a <strong>decoupled parallel wrist</strong> providing flexion/extension and radial/ulnar deviation,
+            independently actuated while maintaining predictable tendon geometry.
+            Intersecting rotation axes meet at a single pivot point defined by a passive spherical ball joint,
+            minimizing translational palm motion during rotation and reducing cross-axis coupling.
+          </p>
+          <p>
+            Finger tendons pass through a through-hole near the wrist rotation center, then are redirected
+            by a bearing-supported routing plate — limiting wrist-induced variation in tendon length and
+            improving controllability across all wrist poses.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Finger Abduction/Adduction -->
+    <div class="content mt-5">
+      <h3 class="title is-4">Finger Abduction / Adduction</h3>
+      <div class="columns is-vcentered">
+        <div class="column is-half">
+          <p>
+            RUKA-v2 adds <strong>controlled abduction/adduction</strong> at the MCP joints via independent knuckle modules,
+            enabling lateral finger spacing for pinching thin objects, conforming to irregular geometry,
+            and stabilizing objects during in-hand reorientation.
+          </p>
+          <p>
+            Each joint is driven by a dedicated forearm tendon, with a spring return to neutral.
+            The middle finger remains fixed as a stable geometric reference. This configuration adds passive
+            compliance during contact and enforces a well-defined default posture.
+          </p>
+        </div>
+        <div class="column is-half">
+          <img src="./static/images/knuckle.jpeg" alt="Finger Abduction/Adduction Module">
+        </div>
+      </div>
+    </div>
+
+</section>
 
 <section class="section">
   <div class="container is-max-desktop">
